@@ -1,5 +1,6 @@
 # Maintainer: littleblack111 <littleblack11111@gmail.com>
 pkgname=video-guard-git
+_pkgname=video-guard
 pkgver=r11.06bcc88
 pkgrel=1
 pkgdesc="Helper that guards and requests user confirmation for /dev/video* access"
@@ -13,12 +14,12 @@ source=("git+https://github.com/littleblack111/video-guard.git")
 sha256sums=('SKIP')
 
 pkgver() {
-	cd "$pkgname"
+	cd "$_pkgname"
 	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short=7 HEAD)"
 }
 
 package() {
-	cd "$pkgname"
+	cd "$_pkgname"
 	install -Dm755 videoGuard.sh "$pkgdir/usr/bin/videoGuard"
 	install -Dm644 video-guard.service "$pkgdir/etc/systemd/system/video-guard.service"
 }
