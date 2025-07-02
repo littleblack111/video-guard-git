@@ -20,7 +20,7 @@ pkgver() {
 
 package() {
 	cd "$_pkgname"
-	install -Dm755 videoGuard.sh "$pkgdir/usr/bin/videoGuard"
+	install -Dm755 videoGuard.sh "$pkgdir/usr/bin/video-guard"
 	install -Dm644 video-guard.service "$pkgdir/etc/systemd/system/video-guard.service"
 }
 
