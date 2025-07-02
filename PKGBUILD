@@ -1,5 +1,5 @@
 # Maintainer: littleblack111 <littleblack11111@gmail.com>
-pkgname=video-guard
+pkgname=video-guard-git
 pkgver=r11.06bcc88
 pkgrel=1
 pkgdesc="Helper that guards and requests user confirmation for /dev/video* access"

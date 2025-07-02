@@ -1,4 +1,4 @@
-pkgbase = video-guard
+pkgbase = video-guard-git
 	pkgdesc = Helper that guards and requests user confirmation for /dev/video* access
 	pkgver = r11.06bcc88
 	pkgrel = 1
@@ -17,4 +17,4 @@ pkgbase = video-guard
 	source = git+https://github.com/littleblack111/video-guard.git
 	sha256sums = SKIP
 
-pkgname = video-guard
+pkgname = video-guard-git
