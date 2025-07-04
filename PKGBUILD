@@ -18,9 +18,25 @@ pkgver() {
 	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short=7 HEAD)"
 }
 
+build() {
+	cd "$_pkgname"
+	# helpers
+	clang -O2 -g \
+		-I/usr/include \
+		-target bpf \
+		-c helper/kernel.c -o kernel.bpf.o
+	bpftool gen skeleton kernel.bpf.o >kernel.skel.h
+	g++ -O2 -std=c++26 \
+		helper/user.cpp \
+		-I. -I/usr/include/bpf \
+		-lbpf -lelf -lz -pthread \
+		-o video-guard-helper
+}
+
 package() {
 	cd "$_pkgname"
 	install -Dm755 videoGuard.sh "$pkgdir/usr/bin/video-guard"
+	install -Dm4755 -o root -g root video-guard-helper "$pkgdir/usr/bin/video-guard-helper"
 	install -Dm644 video-guard.service "$pkgdir/etc/systemd/system/video-guard.service"
 }
 
