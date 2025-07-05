@@ -9,7 +9,7 @@ url="https://github.com/littleblack111/video-guard"
 license=('GPL-3.0-or-later')
 depends=('lsof' 'bash' 'systemd' 'libnotify' 'coreutils' 'gawk')
 optdepends=('hyprland-qtutils: to use default dialog')
-makedepends=('git' 'clang' 'bpftool' 'gcc' 'libbpf')
+makedepends=('git' 'clang' 'bpf' 'gcc' 'libbpf')
 source=("git+https://github.com/littleblack111/video-guard.git")
 sha256sums=('SKIP')
 
